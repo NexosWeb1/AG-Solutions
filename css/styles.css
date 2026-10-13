@@ -191,17 +191,21 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .nav-toggle[aria-expanded="true"] .nav-toggle__bar:nth-child(2) { opacity: 0; }
 .nav-toggle[aria-expanded="true"] .nav-toggle__bar:nth-child(3) { transform: translateY(-5.8px) rotate(-45deg); }
 
-/* Navegação mobile (painel) */
+/* Navegação mobile: cartão compacto ancorado no canto superior direito */
 .nav {
   position: fixed;
-  inset: var(--header-h) 0 auto 0;
-  padding: 8px var(--gutter) 28px;
+  top: calc(var(--header-h) + 8px);
+  right: var(--gutter);
+  width: min(220px, calc(100vw - var(--gutter) * 2));
+  padding: 6px 20px 20px;
   background: var(--header-bg);
-  border-top: 1px solid rgba(255, 255, 255, .08);
-  box-shadow: 0 24px 40px -20px rgba(0, 0, 0, .6);
+  border: 1px solid rgba(255, 255, 255, .1);
+  border-radius: var(--radius);
+  box-shadow: 0 24px 48px -16px rgba(0, 0, 0, .65);
   opacity: 0;
   visibility: hidden;
-  transform: translateY(-8px);
+  transform: translateY(-8px) scale(.97);
+  transform-origin: top right;
   transition: opacity .25s var(--ease), transform .25s var(--ease), visibility 0s linear .25s;
 }
 .nav.is-open {
@@ -210,18 +214,32 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   transform: none;
   transition: opacity .25s var(--ease), transform .25s var(--ease);
 }
-.nav__list { list-style: none; padding: 0; margin: 0 0 20px; }
+.nav__list { list-style: none; padding: 0; margin: 0 0 16px; }
+.nav__list li:last-child .nav__link { border-bottom: 0; }
 .nav__link {
   display: block;
-  padding: 14px 0;
+  padding: 12px 0;
   font-family: var(--font-head);
-  font-size: 1.125rem;
+  font-size: 1rem;
   font-weight: 600;
   color: var(--white);
   border-bottom: 1px solid rgba(255, 255, 255, .1);
 }
 .nav__link.is-active { color: var(--gold-400); }
-.nav__cta { width: 100%; }
+.nav__cta { width: 100%; padding-inline: 1em; font-size: .875rem; white-space: nowrap; }
+
+/* Fundo escurecido atrás do menu aberto (toque fora fecha o menu) */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 95;
+  background: rgba(8, 14, 28, .5);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .25s var(--ease), visibility 0s linear .25s;
+}
+body.nav-open::after { opacity: 1; visibility: visible; transition: opacity .25s var(--ease); }
 
 /* Sem JS: menu sempre visível em lista simples */
 html:not(.js) .nav { position: static; opacity: 1; visibility: visible; transform: none; box-shadow: none; }
@@ -233,10 +251,12 @@ html:not(.js) .nav-toggle { display: none; }
   .nav {
     position: static;
     display: flex;
+    width: auto;
     margin-left: auto;
     padding: 0;
     background: none;
     border: 0;
+    border-radius: 0;
     box-shadow: none;
     opacity: 1;
     visibility: visible;
@@ -317,7 +337,7 @@ html:not(.js) .nav-toggle { display: none; }
   top: var(--header-h);
   display: grid;
   height: var(--stage-h);
-  min-height: 560px;
+  height: calc(100dvh - var(--header-h)); /* acompanha a barra de endereço do celular */
   overflow: hidden;
   isolation: isolate;
 }
@@ -533,6 +553,42 @@ html:not(.js) .nav-toggle { display: none; }
   .hero__lead { padding: 14px 16px; margin-top: 20px; }
   .hero__actions { margin-top: 24px; }
   .hero__eyebrow { margin-bottom: 16px; letter-spacing: .16em; }
+  .hero .btn--lg { min-height: 50px; padding: .8em 1.25em; font-size: .9375rem; }
+}
+/* Celulares baixos: compacta para tudo caber acima da pílula */
+@media (max-width: 639px) and (max-height: 760px) {
+  .hero__chapters { padding-block: 16px 84px; }
+  .hero__title { font-size: clamp(1.75rem, 4.6svh, 2.125rem); }
+  .hero__eyebrow { margin-bottom: 12px; font-size: .6875rem; }
+  .hero__lead { margin-top: 14px; padding: 10px 14px; font-size: .9375rem; }
+  .hero__actions { margin-top: 16px; gap: 10px; }
+  .hero .btn--lg { min-height: 46px; }
+  .hero__nav { bottom: calc(12px + env(safe-area-inset-bottom)); }
+}
+
+/* Indicadores de etapa (carrossel no celular/tablet) */
+.hero__dots { display: none; gap: 6px; margin-top: 7px; }
+.hero__dot {
+  position: relative;
+  width: 14px;
+  height: 4px;
+  padding: 0;
+  background: rgba(255, 255, 255, .28);
+  border-radius: 2px;
+  transition: width .35s var(--ease-out), background-color .35s ease;
+}
+.hero__dot::before { content: ""; position: absolute; inset: -10px -4px; } /* área de toque maior */
+.hero__dot.is-active { width: 26px; background: var(--gold-500); }
+
+/* Celular/tablet: carrossel automático em uma tela (sem rolagem presa) */
+@media (max-width: 959px) {
+  .hero { height: auto; }
+  .hero__stage { position: relative; top: 0; touch-action: pan-y; }
+  .hero__dots { display: flex; }
+  .hero__nav-title { white-space: nowrap; }
+  /* No carrossel o anel avança para o lado: seta para a direita */
+  .hero__ring-icon,
+  .hero__ring:hover .hero__ring-icon { transform: none; }
 }
 
 /* Telas baixas (notebooks): compacta o espaçamento para o conteúdo caber acima da pílula */
