@@ -1,10 +1,12 @@
 <!doctype html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>AG Solutions | Gestão condominial e terceirização sob medida</title>
-  <meta name="description" content="Administração condominial, conservação e limpeza, terceirização de funcionários, gestão financeira e assessoria jurídica com soluções personalizadas para o seu condomínio. Atendimento em todo o Brasil.">
+  <meta name="description"
+    content="Administração condominial, conservação e limpeza, terceirização de funcionários, gestão financeira e assessoria jurídica com soluções personalizadas para o seu condomínio. Atendimento em todo o Brasil.">
   <meta name="theme-color" content="#14223f">
 
   <meta property="og:type" content="website">
@@ -17,29 +19,83 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet">
 
   <link rel="stylesheet" href="css/styles.css?v=5">
   <script>document.documentElement.classList.add('js');</script>
 </head>
+
 <body>
 
   <!-- Ícones (sprite) -->
   <svg width="0" height="0" class="sr-only" aria-hidden="true" focusable="false">
     <defs>
-      <symbol id="i-whatsapp" viewBox="0 0 24 24"><path fill="currentColor" d="M19.05 4.91A9.82 9.82 0 0 0 12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.73 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01Zm-7.01 15.24h-.01a8.23 8.23 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.25-8.23 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.82c0 4.54-3.7 8.23-8.23 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48a.92.92 0 0 0-.66.31c-.23.25-.87.85-.87 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.25 3.75.59.26 1.05.41 1.41.52.6.19 1.14.16 1.57.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.29Z"/></symbol>
-      <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></symbol>
-      <symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
-      <symbol id="i-minus" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M7 12h10"/></symbol>
-      <symbol id="i-image" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="1.6"/><path d="m21 16-5-5-9 9"/></g></symbol>
+      <symbol id="i-whatsapp" viewBox="0 0 24 24">
+        <path fill="currentColor"
+          d="M19.05 4.91A9.82 9.82 0 0 0 12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.73 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01Zm-7.01 15.24h-.01a8.23 8.23 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.25-8.23 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.82c0 4.54-3.7 8.23-8.23 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48a.92.92 0 0 0-.66.31c-.23.25-.87.85-.87 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.25 3.75.59.26 1.05.41 1.41.52.6.19 1.14.16 1.57.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.29Z" />
+      </symbol>
+      <symbol id="i-arrow" viewBox="0 0 24 24">
+        <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+          d="M5 12h14M13 6l6 6-6 6" />
+      </symbol>
+      <symbol id="i-check" viewBox="0 0 24 24">
+        <path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"
+          d="m5 12.5 4.5 4.5L19 7.5" />
+      </symbol>
+      <symbol id="i-minus" viewBox="0 0 24 24">
+        <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M7 12h10" />
+      </symbol>
+      <symbol id="i-image" viewBox="0 0 24 24">
+        <g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="4" width="18" height="16" rx="2" />
+          <circle cx="9" cy="10" r="1.6" />
+          <path d="m21 16-5-5-9 9" />
+        </g>
+      </symbol>
 
       <!-- Serviços -->
-      <symbol id="i-building" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="1.5"/><path d="M9 21v-4h6v4M8.5 7h1M14.5 7h1M8.5 10.5h1M14.5 10.5h1M8.5 14h1M14.5 14h1"/></g></symbol>
-      <symbol id="i-sparkle" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5 13.8 10.2 20.5 12l-6.7 1.8L12 20.5l-1.8-6.7L3.5 12l6.7-1.8L12 3.5Z"/><path d="M19 3v3M17.5 4.5h3"/></g></symbol>
-      <symbol id="i-phone" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6.5" y="2.5" width="11" height="19" rx="2.2"/><path d="M10.5 18.5h3"/><path d="m9.5 11 1.8 1.8 3.4-3.6"/></g></symbol>
-      <symbol id="i-users" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-5.5 6-5.5s6 2.2 6 5.5"/><path d="M15.5 4.9a3.2 3.2 0 0 1 0 6.2M17.5 14.8c2 .6 3.5 2.4 3.5 5.2"/></g></symbol>
-      <symbol id="i-finance" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 9.5h18"/><path d="M7 14.5h4"/><circle cx="16.5" cy="14.5" r="1.3"/></g></symbol>
-      <symbol id="i-scale" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M7 21h10M5 7h14M12 5.2V7"/><path d="m5 7-3 6.5a3 3 0 0 0 6 0L5 7ZM19 7l-3 6.5a3 3 0 0 0 6 0L19 7Z"/></g></symbol>
+      <symbol id="i-building" viewBox="0 0 24 24">
+        <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="4" y="3" width="16" height="18" rx="1.5" />
+          <path d="M9 21v-4h6v4M8.5 7h1M14.5 7h1M8.5 10.5h1M14.5 10.5h1M8.5 14h1M14.5 14h1" />
+        </g>
+      </symbol>
+      <symbol id="i-sparkle" viewBox="0 0 24 24">
+        <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 3.5 13.8 10.2 20.5 12l-6.7 1.8L12 20.5l-1.8-6.7L3.5 12l6.7-1.8L12 3.5Z" />
+          <path d="M19 3v3M17.5 4.5h3" />
+        </g>
+      </symbol>
+      <symbol id="i-phone" viewBox="0 0 24 24">
+        <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="6.5" y="2.5" width="11" height="19" rx="2.2" />
+          <path d="M10.5 18.5h3" />
+          <path d="m9.5 11 1.8 1.8 3.4-3.6" />
+        </g>
+      </symbol>
+      <symbol id="i-users" viewBox="0 0 24 24">
+        <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="9" cy="8" r="3.2" />
+          <path d="M3 20c0-3.3 2.7-5.5 6-5.5s6 2.2 6 5.5" />
+          <path d="M15.5 4.9a3.2 3.2 0 0 1 0 6.2M17.5 14.8c2 .6 3.5 2.4 3.5 5.2" />
+        </g>
+      </symbol>
+      <symbol id="i-finance" viewBox="0 0 24 24">
+        <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="5" width="18" height="14" rx="2" />
+          <path d="M3 9.5h18" />
+          <path d="M7 14.5h4" />
+          <circle cx="16.5" cy="14.5" r="1.3" />
+        </g>
+      </symbol>
+      <symbol id="i-scale" viewBox="0 0 24 24">
+        <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 3v18M7 21h10M5 7h14M12 5.2V7" />
+          <path d="m5 7-3 6.5a3 3 0 0 0 6 0L5 7ZM19 7l-3 6.5a3 3 0 0 0 6 0L19 7Z" />
+        </g>
+      </symbol>
     </defs>
   </svg>
 
@@ -61,17 +117,22 @@
           <li><a class="nav__link" href="#quem-somos">Quem Somos</a></li>
           <li><a class="nav__link" href="#contato">Contato</a></li>
         </ul>
-        <a class="btn btn--gold nav__cta" href="https://wa.me/5531991777275" data-wa="header" target="_blank" rel="noopener">
-          <svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg>
+        <a class="btn btn--gold nav__cta" href="https://wa.me/5531991777275" data-wa="header" target="_blank"
+          rel="noopener">
+          <svg class="icon" aria-hidden="true">
+            <use href="#i-whatsapp" />
+          </svg>
           Solicitar orçamento
         </a>
       </nav>
 
-      <a class="btn btn--gold btn--sm header__cta" href="https://wa.me/5531991777275" data-wa="header" target="_blank" rel="noopener">
+      <a class="btn btn--gold btn--sm header__cta" href="https://wa.me/5531991777275" data-wa="header" target="_blank"
+        rel="noopener">
         Solicitar orçamento
       </a>
 
-      <button class="nav-toggle" type="button" aria-controls="menu-principal" aria-expanded="false" aria-label="Abrir menu" data-nav-toggle>
+      <button class="nav-toggle" type="button" aria-controls="menu-principal" aria-expanded="false"
+        aria-label="Abrir menu" data-nav-toggle>
         <span class="nav-toggle__bar"></span>
         <span class="nav-toggle__bar"></span>
         <span class="nav-toggle__bar"></span>
@@ -89,13 +150,19 @@
 
         <div class="hero__bg" aria-hidden="true">
           <div class="hero__frame is-active" data-hero-frame>
-            <img src="assets/img/hero-1-1920.jpg" srcset="assets/img/hero-1-960.jpg 960w, assets/img/hero-1-1920.jpg 1920w" sizes="100vw" alt="" fetchpriority="high" decoding="async">
+            <img src="assets/img/hero-1-1920.jpg"
+              srcset="assets/img/hero-1-960.jpg 960w, assets/img/hero-1-1920.jpg 1920w" sizes="100vw" alt=""
+              fetchpriority="high" decoding="async">
           </div>
           <div class="hero__frame" data-hero-frame>
-            <img src="assets/img/hero-2-1920.jpg" srcset="assets/img/hero-2-960.jpg 960w, assets/img/hero-2-1920.jpg 1920w" sizes="100vw" alt="" decoding="async">
+            <img src="assets/img/hero-2-1920.jpg"
+              srcset="assets/img/hero-2-960.jpg 960w, assets/img/hero-2-1920.jpg 1920w" sizes="100vw" alt=""
+              decoding="async">
           </div>
           <div class="hero__frame" data-hero-frame>
-            <img src="assets/img/hero-3-1920.jpg" srcset="assets/img/hero-3-960.jpg 960w, assets/img/hero-3-1920.jpg 1920w" sizes="100vw" alt="" decoding="async">
+            <img src="assets/img/hero-3-1920.jpg"
+              srcset="assets/img/hero-3-960.jpg 960w, assets/img/hero-3-1920.jpg 1920w" sizes="100vw" alt=""
+              decoding="async">
           </div>
           <div class="hero__shade"></div>
           <div class="hero__grain"></div>
@@ -104,48 +171,68 @@
         <div class="container hero__chapters">
           <article class="hero__chapter is-active" data-hero-chapter data-title="Gestão sob medida">
             <p class="hero__eyebrow"><span class="hero__line" aria-hidden="true"></span>Etapa 01 · Gestão sob medida</p>
-            <h1 class="hero__title" id="hero-title" data-split>Gestão condominial e terceirização sob medida para o seu condomínio.</h1>
+            <h1 class="hero__title" id="hero-title" data-split>Gestão condominial e terceirização sob medida para o seu
+              condomínio.</h1>
             <p class="hero__lead">Serviços especializados com soluções personalizadas.</p>
             <div class="hero__actions">
-              <a class="btn btn--gold btn--lg" href="https://wa.me/5531991777275" data-wa="hero" target="_blank" rel="noopener">
-                <svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg>
+              <a class="btn btn--gold btn--lg" href="https://wa.me/5531991777275" data-wa="hero" target="_blank"
+                rel="noopener">
+                <svg class="icon" aria-hidden="true">
+                  <use href="#i-whatsapp" />
+                </svg>
                 Solicitar orçamento pelo WhatsApp
               </a>
               <a class="btn btn--ghost-light btn--lg" href="#servicos">
                 Conheça nossos serviços
-                <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg>
+                <svg class="icon" aria-hidden="true">
+                  <use href="#i-arrow" />
+                </svg>
               </a>
             </div>
           </article>
 
           <article class="hero__chapter" data-hero-chapter data-title="Administração e finanças">
-            <p class="hero__eyebrow"><span class="hero__line" aria-hidden="true"></span>Etapa 02 · Administração e finanças</p>
+            <p class="hero__eyebrow"><span class="hero__line" aria-hidden="true"></span>Etapa 02 · Administração e
+              finanças</p>
             <h2 class="hero__title" data-split>Rotinas estruturadas e acompanhamento financeiro.</h2>
-            <p class="hero__lead">Organização administrativa e controle das receitas, despesas e obrigações do condomínio, conforme o escopo contratado.</p>
+            <p class="hero__lead">Organização administrativa e controle das receitas, despesas e obrigações do
+              condomínio, conforme o escopo contratado.</p>
             <div class="hero__actions">
-              <a class="btn btn--gold btn--lg" href="https://wa.me/5531991777275" data-wa="hero" target="_blank" rel="noopener">
-                <svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg>
+              <a class="btn btn--gold btn--lg" href="https://wa.me/5531991777275" data-wa="hero" target="_blank"
+                rel="noopener">
+                <svg class="icon" aria-hidden="true">
+                  <use href="#i-whatsapp" />
+                </svg>
                 Converse com a AG Solutions
               </a>
               <a class="btn btn--ghost-light btn--lg" href="#comparativo">
                 Veja a diferença
-                <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg>
+                <svg class="icon" aria-hidden="true">
+                  <use href="#i-arrow" />
+                </svg>
               </a>
             </div>
           </article>
 
           <article class="hero__chapter" data-hero-chapter data-title="Conservação e equipe">
-            <p class="hero__eyebrow"><span class="hero__line" aria-hidden="true"></span>Etapa 03 · Conservação e equipe</p>
+            <p class="hero__eyebrow"><span class="hero__line" aria-hidden="true"></span>Etapa 03 · Conservação e equipe
+            </p>
             <h2 class="hero__title" data-split>Conservação, limpeza e equipe terceirizada.</h2>
-            <p class="hero__lead">Profissionais e serviços dimensionados conforme as necessidades operacionais e as características de cada condomínio.</p>
+            <p class="hero__lead">Profissionais e serviços dimensionados conforme as necessidades operacionais e as
+              características de cada condomínio.</p>
             <div class="hero__actions">
-              <a class="btn btn--gold btn--lg" href="https://wa.me/5531991777275" data-wa="hero" target="_blank" rel="noopener">
-                <svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg>
+              <a class="btn btn--gold btn--lg" href="https://wa.me/5531991777275" data-wa="hero" target="_blank"
+                rel="noopener">
+                <svg class="icon" aria-hidden="true">
+                  <use href="#i-whatsapp" />
+                </svg>
                 Solicitar orçamento pelo WhatsApp
               </a>
               <a class="btn btn--ghost-light btn--lg" href="#servicos">
                 Conheça nossos serviços
-                <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg>
+                <svg class="icon" aria-hidden="true">
+                  <use href="#i-arrow" />
+                </svg>
               </a>
             </div>
           </article>
@@ -159,10 +246,12 @@
           </div>
           <button class="hero__ring" type="button" aria-label="Próxima etapa" data-hero-next>
             <svg viewBox="0 0 48 48" aria-hidden="true">
-              <circle class="hero__ring-track" cx="24" cy="24" r="18"/>
-              <circle class="hero__ring-bar" cx="24" cy="24" r="18" data-hero-ring/>
+              <circle class="hero__ring-track" cx="24" cy="24" r="18" />
+              <circle class="hero__ring-bar" cx="24" cy="24" r="18" data-hero-ring />
             </svg>
-            <svg class="hero__ring-icon" aria-hidden="true"><use href="#i-arrow"/></svg>
+            <svg class="hero__ring-icon" aria-hidden="true">
+              <use href="#i-arrow" />
+            </svg>
           </button>
         </nav>
       </div>
@@ -174,57 +263,76 @@
         <header class="section-head reveal">
           <p class="eyebrow">Serviços</p>
           <h2 class="section-title" id="servicos-title">Soluções completas para a gestão do seu condomínio.</h2>
-          <p class="section-lead">Serviços personalizados para atender às necessidades administrativas, financeiras e operacionais de cada condomínio.</p>
+          <p class="section-lead">Serviços personalizados para atender às necessidades administrativas, financeiras e
+            operacionais de cada condomínio.</p>
         </header>
 
         <ol class="services" role="list">
           <li class="service reveal">
             <div class="service__top">
-              <svg class="service__icon" aria-hidden="true"><use href="#i-building"/></svg>
+              <svg class="service__icon" aria-hidden="true">
+                <use href="#i-building" />
+              </svg>
               <span class="service__num" aria-hidden="true">01</span>
             </div>
             <h3 class="service__title">Administração condominial</h3>
-            <p class="service__text">Organização e acompanhamento das rotinas administrativas do condomínio, com foco em processos estruturados e suporte à gestão.</p>
+            <p class="service__text">Organização e acompanhamento das rotinas administrativas do condomínio, com foco em
+              processos estruturados e suporte à gestão.</p>
           </li>
           <li class="service reveal">
             <div class="service__top">
-              <svg class="service__icon" aria-hidden="true"><use href="#i-sparkle"/></svg>
+              <svg class="service__icon" aria-hidden="true">
+                <use href="#i-sparkle" />
+              </svg>
               <span class="service__num" aria-hidden="true">02</span>
             </div>
             <h3 class="service__title">Conservação e limpeza</h3>
-            <p class="service__text">Serviços voltados à conservação, limpeza e manutenção da organização dos ambientes e áreas comuns.</p>
+            <p class="service__text">Serviços voltados à conservação, limpeza e manutenção da organização dos ambientes
+              e áreas comuns.</p>
           </li>
           <li class="service reveal">
             <div class="service__top">
-              <svg class="service__icon" aria-hidden="true"><use href="#i-phone"/></svg>
+              <svg class="service__icon" aria-hidden="true">
+                <use href="#i-phone" />
+              </svg>
               <span class="service__num" aria-hidden="true">03</span>
             </div>
             <h3 class="service__title">Controle online por aplicativo</h3>
-            <p class="service__text">Controle online por aplicativo como parte das soluções oferecidas para apoiar o acompanhamento da gestão condominial.</p>
+            <p class="service__text">Controle online por aplicativo como parte das soluções oferecidas para apoiar o
+              acompanhamento da gestão condominial.</p>
           </li>
           <li class="service reveal">
             <div class="service__top">
-              <svg class="service__icon" aria-hidden="true"><use href="#i-users"/></svg>
+              <svg class="service__icon" aria-hidden="true">
+                <use href="#i-users" />
+              </svg>
               <span class="service__num" aria-hidden="true">04</span>
             </div>
             <h3 class="service__title">Terceirização de funcionários</h3>
-            <p class="service__text">Disponibilização de profissionais terceirizados conforme as necessidades operacionais e as características de cada condomínio.</p>
+            <p class="service__text">Disponibilização de profissionais terceirizados conforme as necessidades
+              operacionais e as características de cada condomínio.</p>
           </li>
           <li class="service reveal">
             <div class="service__top">
-              <svg class="service__icon" aria-hidden="true"><use href="#i-finance"/></svg>
+              <svg class="service__icon" aria-hidden="true">
+                <use href="#i-finance" />
+              </svg>
               <span class="service__num" aria-hidden="true">05</span>
             </div>
             <h3 class="service__title">Gestão financeira condominial</h3>
-            <p class="service__text">Organização e acompanhamento financeiro para apoiar o controle das receitas, despesas e obrigações do condomínio, conforme o escopo contratado.</p>
+            <p class="service__text">Organização e acompanhamento financeiro para apoiar o controle das receitas,
+              despesas e obrigações do condomínio, conforme o escopo contratado.</p>
           </li>
           <li class="service reveal">
             <div class="service__top">
-              <svg class="service__icon" aria-hidden="true"><use href="#i-scale"/></svg>
+              <svg class="service__icon" aria-hidden="true">
+                <use href="#i-scale" />
+              </svg>
               <span class="service__num" aria-hidden="true">06</span>
             </div>
             <h3 class="service__title">Assessoria jurídica</h3>
-            <p class="service__text">Suporte jurídico relacionado às demandas condominiais, conforme os serviços efetivamente disponibilizados pela empresa.</p>
+            <p class="service__text">Suporte jurídico relacionado às demandas condominiais, conforme os serviços
+              efetivamente disponibilizados pela empresa.</p>
           </li>
         </ol>
 
@@ -232,7 +340,9 @@
           <p class="cta-strip__text">Seu condomínio precisa de uma solução personalizada?</p>
           <a class="btn btn--navy" href="https://wa.me/5531991777275" data-wa="services" target="_blank" rel="noopener">
             Converse com a AG Solutions
-            <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg>
+            <svg class="icon" aria-hidden="true">
+              <use href="#i-arrow" />
+            </svg>
           </a>
         </div>
       </div>
@@ -244,7 +354,8 @@
         <header class="section-head reveal">
           <p class="eyebrow">Comparativo</p>
           <h2 class="section-title" id="comparativo-title">A diferença está na forma de gerir.</h2>
-          <p class="section-lead">Uma gestão estruturada ajuda a organizar processos, acompanhar responsabilidades e tornar a rotina do condomínio mais eficiente.</p>
+          <p class="section-lead">Uma gestão estruturada ajuda a organizar processos, acompanhar responsabilidades e
+            tornar a rotina do condomínio mais eficiente.</p>
         </header>
 
         <div class="compare reveal">
@@ -254,11 +365,21 @@
               Com a AG Solutions
             </h3>
             <ul class="compare__list" role="list">
-              <li><span class="compare__mark compare__mark--yes" aria-hidden="true"><svg><use href="#i-check"/></svg></span>Rotinas administrativas estruturadas</li>
-              <li><span class="compare__mark compare__mark--yes" aria-hidden="true"><svg><use href="#i-check"/></svg></span>Acompanhamento financeiro conforme o contrato</li>
-              <li><span class="compare__mark compare__mark--yes" aria-hidden="true"><svg><use href="#i-check"/></svg></span>Maior organização das demandas operacionais</li>
-              <li><span class="compare__mark compare__mark--yes" aria-hidden="true"><svg><use href="#i-check"/></svg></span>Coordenação dos serviços contratados</li>
-              <li><span class="compare__mark compare__mark--yes" aria-hidden="true"><svg><use href="#i-check"/></svg></span>Apoio à gestão e ao acompanhamento das responsabilidades</li>
+              <li><span class="compare__mark compare__mark--yes" aria-hidden="true"><svg>
+                    <use href="#i-check" />
+                  </svg></span>Rotinas administrativas estruturadas</li>
+              <li><span class="compare__mark compare__mark--yes" aria-hidden="true"><svg>
+                    <use href="#i-check" />
+                  </svg></span>Acompanhamento financeiro conforme o contrato</li>
+              <li><span class="compare__mark compare__mark--yes" aria-hidden="true"><svg>
+                    <use href="#i-check" />
+                  </svg></span>Maior organização das demandas operacionais</li>
+              <li><span class="compare__mark compare__mark--yes" aria-hidden="true"><svg>
+                    <use href="#i-check" />
+                  </svg></span>Coordenação dos serviços contratados</li>
+              <li><span class="compare__mark compare__mark--yes" aria-hidden="true"><svg>
+                    <use href="#i-check" />
+                  </svg></span>Apoio à gestão e ao acompanhamento das responsabilidades</li>
             </ul>
           </div>
 
@@ -268,11 +389,21 @@
               Sem uma gestão estruturada
             </h3>
             <ul class="compare__list" role="list">
-              <li><span class="compare__mark compare__mark--no" aria-hidden="true"><svg><use href="#i-minus"/></svg></span>Maior risco de desorganização administrativa</li>
-              <li><span class="compare__mark compare__mark--no" aria-hidden="true"><svg><use href="#i-minus"/></svg></span>Dificuldade de acompanhar receitas e despesas</li>
-              <li><span class="compare__mark compare__mark--no" aria-hidden="true"><svg><use href="#i-minus"/></svg></span>Sobrecarga do síndico com tarefas operacionais</li>
-              <li><span class="compare__mark compare__mark--no" aria-hidden="true"><svg><use href="#i-minus"/></svg></span>Falhas de comunicação e acompanhamento</li>
-              <li><span class="compare__mark compare__mark--no" aria-hidden="true"><svg><use href="#i-minus"/></svg></span>Dificuldade para coordenar serviços e responsabilidades</li>
+              <li><span class="compare__mark compare__mark--no" aria-hidden="true"><svg>
+                    <use href="#i-minus" />
+                  </svg></span>Maior risco de desorganização administrativa</li>
+              <li><span class="compare__mark compare__mark--no" aria-hidden="true"><svg>
+                    <use href="#i-minus" />
+                  </svg></span>Dificuldade de acompanhar receitas e despesas</li>
+              <li><span class="compare__mark compare__mark--no" aria-hidden="true"><svg>
+                    <use href="#i-minus" />
+                  </svg></span>Sobrecarga do síndico com tarefas operacionais</li>
+              <li><span class="compare__mark compare__mark--no" aria-hidden="true"><svg>
+                    <use href="#i-minus" />
+                  </svg></span>Falhas de comunicação e acompanhamento</li>
+              <li><span class="compare__mark compare__mark--no" aria-hidden="true"><svg>
+                    <use href="#i-minus" />
+                  </svg></span>Dificuldade para coordenar serviços e responsabilidades</li>
             </ul>
           </div>
         </div>
@@ -280,7 +411,9 @@
         <div class="cta-strip cta-strip--stack reveal">
           <p class="cta-strip__text">Organize a gestão do seu condomínio com uma solução sob medida.</p>
           <a class="btn btn--navy" href="https://wa.me/5531991777275" data-wa="compare" target="_blank" rel="noopener">
-            <svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg>
+            <svg class="icon" aria-hidden="true">
+              <use href="#i-whatsapp" />
+            </svg>
             Solicitar uma avaliação pelo WhatsApp
           </a>
         </div>
@@ -292,39 +425,50 @@
       <div class="container">
         <header class="section-head reveal">
           <p class="eyebrow">Quem somos</p>
-          <h2 class="section-title" id="quem-somos-title">Por trás da gestão, pessoas comprometidas com cada detalhe.</h2>
-          <p class="section-lead">A AG Solutions nasce com a proposta de oferecer soluções personalizadas em gestão condominial e terceirização, considerando as necessidades e particularidades de cada condomínio.</p>
+          <h2 class="section-title" id="quem-somos-title">Por trás da gestão, pessoas comprometidas com cada detalhe.
+          </h2>
+          <p class="section-lead">A AG Solutions nasce com a proposta de oferecer soluções personalizadas em gestão
+            condominial e terceirização, considerando as necessidades e particularidades de cada condomínio.</p>
         </header>
 
         <div class="team">
           <article class="member reveal">
             <figure class="member__photo media" data-media>
               <!-- Retrato profissional oficial: assets/img/ary.jpg (não usar foto genérica) -->
-              <img src="assets/img/ary.jpg" alt="Retrato de Ary, sócia-proprietária da AG Solutions" loading="lazy" decoding="async">
+              <img src="assets/img/ary.jpg" alt="Retrato de Ary, sócia-proprietária da AG Solutions" loading="lazy"
+                decoding="async">
               <figcaption class="media__placeholder media__placeholder--light">
-                <svg class="icon" aria-hidden="true"><use href="#i-image"/></svg>
+                <svg class="icon" aria-hidden="true">
+                  <use href="#i-image" />
+                </svg>
                 <span>Retrato profissional — Ary (pendente)</span>
                 <small>→ inserção</small>
               </figcaption>
             </figure>
             <h3 class="member__name">Ary</h3>
             <p class="member__role">Sócia-proprietária</p>
-            <p class="member__bio">Descrição da função e atuação na empresa a ser fornecida.</p>
+            <p class="member__bio">Responsável pela gestão administrativa, burocrática e organizacional, trazendo 10
+              anos de experiência no setor administrativo, com foco em organização, planejamento e eficiência dos
+              processos.</p>
           </article>
 
           <article class="member reveal">
             <figure class="member__photo media" data-media>
               <!-- Retrato profissional oficial: assets/img/gleiton.jpg (não usar foto genérica) -->
-              <img src="assets/img/gleiton.jpg" alt="Retrato de Gleiton, sócio-proprietário da AG Solutions" loading="lazy" decoding="async">
+              <img src="assets/img/gleiton.jpg" alt="Retrato de Gleiton, sócio-proprietário da AG Solutions"
+                loading="lazy" decoding="async">
               <figcaption class="media__placeholder media__placeholder--light">
-                <svg class="icon" aria-hidden="true"><use href="#i-image"/></svg>
+                <svg class="icon" aria-hidden="true">
+                  <use href="#i-image" />
+                </svg>
                 <span>Retrato profissional — Gleiton (pendente)</span>
                 <small>→ inserção</small>
               </figcaption>
             </figure>
             <h3 class="member__name">Gleiton</h3>
             <p class="member__role">Sócio-proprietário</p>
-            <p class="member__bio">Descrição da função e atuação na empresa a ser fornecida.</p>
+            <p class="member__bio">Contribui com a gestão operacional e estratégica do negócio, atuando em conjunto para
+              garantir a qualidade dos serviços, o crescimento sustentável e a satisfação dos clientes.</p>
           </article>
         </div>
       </div>
@@ -335,10 +479,15 @@
       <div class="container">
         <div class="final__head reveal">
           <span class="final__mark" aria-hidden="true"></span>
-          <h2 class="final__title" id="contato-title">Cada condomínio tem suas necessidades. A solução deve acompanhar essa realidade.</h2>
-          <p class="final__lead">Conte à AG Solutions o que seu condomínio precisa. Nossa proposta é desenvolvida de forma personalizada, considerando os serviços necessários e as características de cada contrato.</p>
-          <a class="btn btn--gold btn--lg" href="https://wa.me/5531991777275" data-wa="final" target="_blank" rel="noopener">
-            <svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg>
+          <h2 class="final__title" id="contato-title">Cada condomínio tem suas necessidades. A solução deve acompanhar
+            essa realidade.</h2>
+          <p class="final__lead">Conte à AG Solutions o que seu condomínio precisa. Nossa proposta é desenvolvida de
+            forma personalizada, considerando os serviços necessários e as características de cada contrato.</p>
+          <a class="btn btn--gold btn--lg" href="https://wa.me/5531991777275" data-wa="final" target="_blank"
+            rel="noopener">
+            <svg class="icon" aria-hidden="true">
+              <use href="#i-whatsapp" />
+            </svg>
             Solicitar orçamento pelo WhatsApp
           </a>
         </div>
@@ -382,10 +531,14 @@
   </footer>
 
   <!-- WhatsApp flutuante -->
-  <a class="wa-float" href="https://wa.me/5531991777275" data-wa="float" target="_blank" rel="noopener" aria-label="Conversar com a AG Solutions pelo WhatsApp" data-wa-float>
-    <svg aria-hidden="true"><use href="#i-whatsapp"/></svg>
+  <a class="wa-float" href="https://wa.me/5531991777275" data-wa="float" target="_blank" rel="noopener"
+    aria-label="Conversar com a AG Solutions pelo WhatsApp" data-wa-float>
+    <svg aria-hidden="true">
+      <use href="#i-whatsapp" />
+    </svg>
   </a>
 
   <script src="js/main.js?v=4" defer></script>
 </body>
+
 </html>
