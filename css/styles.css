@@ -531,6 +531,7 @@ html:not(.js) .nav-toggle { display: none; }
   /* Celular: apenas a primeira imagem, ocupando todo o hero */
   .hero__side--left {
     width: 100%;
+    --from-x: 0px; /* sem deslize: a foto ocupa a tela toda, então entra só com fade + zoom */
     -webkit-mask-image: none;
     mask-image: none;
   }
@@ -570,10 +571,15 @@ html:not(.js) .nav-toggle { display: none; }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transform: scale(1.04);
+  /* --img-scale: enquadramento base; --img-zoom: zoom da entrada/hover */
+  transform: scale(calc(var(--img-scale, 1.04) * var(--img-zoom, 1)));
   transition: transform 1.4s var(--ease);
 }
-.cta-banner:hover .cta-banner__img { transform: scale(1.09); }
+/* Entrada igual nos dois banners: a foto chega levemente aproximada e assenta */
+.js .cta-banner.reveal:not(.is-visible) .cta-banner__img { --img-zoom: 1.12; }
+@media (hover: hover) {
+  .cta-banner:hover .cta-banner__img { --img-zoom: 1.05; }
+}
 .cta-banner::before {
   content: "";
   position: absolute;
@@ -619,10 +625,9 @@ html:not(.js) .nav-toggle { display: none; }
     min-height: 360px;
   }
   /* Aproxima a foto e ancora embaixo, para focar nos prédios em vez do céu */
-  .cta-banner--right .cta-banner__img,
-  .cta-banner--right:hover .cta-banner__img {
+  .cta-banner--right .cta-banner__img {
+    --img-scale: 1.55;
     object-position: 30% 100%;
-    transform: scale(1.55);
     transform-origin: 30% 100%;
   }
   .cta-banner.cta-banner::before {
