@@ -15,7 +15,7 @@
   <meta property="og:description" content="Serviços especializados com soluções personalizadas para o seu condomínio.">
   <meta property="og:image" content="assets/img/logo-ag-solutions-original.jpg">
 
-  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/img/logo-ag-solutions-white.png" type="image/png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,7 +23,7 @@
     href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Inter:wght@400;500;600&display=swap"
     rel="stylesheet">
 
-  <link rel="stylesheet" href="css/styles.css?v=5">
+  <link rel="stylesheet" href="css/styles.css?v=26">
   <script>document.documentElement.classList.add('js');</script>
 </head>
 
@@ -106,7 +106,8 @@
     <div class="container header__inner">
       <a class="brand" href="#inicio" aria-label="AG Solutions — voltar ao início">
         <!-- Logomarca oficial (original íntegro em assets/img/logo-ag-solutions-original.jpg) -->
-        <img src="assets/img/logo-ag-solutions.png" alt="AG Solutions" width="400" height="431" fetchpriority="high">
+        <img src="assets/img/logo-ag-solutions-white.png" alt="AG Solutions" width="373" height="480"
+          fetchpriority="high">
       </a>
 
       <nav class="nav" id="menu-principal" aria-label="Menu principal" data-nav>
@@ -142,118 +143,47 @@
 
   <main id="conteudo">
 
-    <!-- ===================== 1. HERO =====================
-         Sequência por rolagem: cada "etapa" troca a imagem de fundo
-         (crossfade + zoom) e revela o texto correspondente. -->
-    <section class="hero" id="inicio" aria-labelledby="hero-title" data-hero style="--chapters: 3">
-      <div class="hero__stage" data-hero-stage>
-
+    <!-- ===================== 1. HERO ===================== -->
+    <section class="hero" id="inicio" aria-labelledby="hero-title" data-hero>
+      <div class="hero__stage">
         <div class="hero__bg" aria-hidden="true">
-          <div class="hero__frame is-active" data-hero-frame>
-            <img src="assets/img/hero-1-1920.jpg"
-              srcset="assets/img/hero-1-960.jpg 960w, assets/img/hero-1-1920.jpg 1920w" sizes="100vw" alt=""
-              fetchpriority="high" decoding="async">
+          <div class="hero__side hero__side--left">
+            <img src="assets/img/hero-1920.jpg?v=2"
+              srcset="assets/img/hero-960.jpg?v=2 960w, assets/img/hero-1920.jpg?v=2 1920w"
+              sizes="(min-width: 640px) 42vw, 100vw" alt="" fetchpriority="high" decoding="async">
           </div>
-          <div class="hero__frame" data-hero-frame>
-            <img src="assets/img/hero-2-1920.jpg"
-              srcset="assets/img/hero-2-960.jpg 960w, assets/img/hero-2-1920.jpg 1920w" sizes="100vw" alt=""
-              decoding="async">
-          </div>
-          <div class="hero__frame" data-hero-frame>
-            <img src="assets/img/hero-3-1920.jpg"
-              srcset="assets/img/hero-3-960.jpg 960w, assets/img/hero-3-1920.jpg 1920w" sizes="100vw" alt=""
-              decoding="async">
+          <div class="hero__side hero__side--right">
+            <img src="assets/img/hero-2-1600.jpg?v=5"
+              srcset="assets/img/hero-2-960.jpg?v=5 960w, assets/img/hero-2-1600.jpg?v=5 1600w"
+              sizes="(min-width: 640px) 42vw, 75vw" alt="" decoding="async">
           </div>
           <div class="hero__shade"></div>
           <div class="hero__grain"></div>
         </div>
 
-        <div class="container hero__chapters">
-          <article class="hero__chapter is-active" data-hero-chapter data-title="Gestão sob medida">
-            <p class="hero__eyebrow"><span class="hero__line" aria-hidden="true"></span>Etapa 01 · Gestão sob medida</p>
-            <h1 class="hero__title" id="hero-title" data-split>Gestão condominial e terceirização sob medida para o seu
-              condomínio.</h1>
-            <p class="hero__lead">Serviços especializados com soluções personalizadas.</p>
-            <div class="hero__actions">
-              <a class="btn btn--gold btn--lg" href="https://wa.me/5531991777275" data-wa="hero" target="_blank"
-                rel="noopener">
-                <svg class="icon" aria-hidden="true">
-                  <use href="#i-whatsapp" />
-                </svg>
-                Solicitar orçamento pelo WhatsApp
-              </a>
-              <a class="btn btn--ghost-light btn--lg" href="#servicos">
-                Conheça nossos serviços
-                <svg class="icon" aria-hidden="true">
-                  <use href="#i-arrow" />
-                </svg>
-              </a>
-            </div>
-          </article>
-
-          <article class="hero__chapter" data-hero-chapter data-title="Administração e finanças">
-            <p class="hero__eyebrow"><span class="hero__line" aria-hidden="true"></span>Etapa 02 · Administração e
-              finanças</p>
-            <h2 class="hero__title" data-split>Rotinas estruturadas e acompanhamento financeiro.</h2>
-            <p class="hero__lead">Organização administrativa e controle das receitas, despesas e obrigações do
-              condomínio, conforme o escopo contratado.</p>
-            <div class="hero__actions">
-              <a class="btn btn--gold btn--lg" href="https://wa.me/5531991777275" data-wa="hero" target="_blank"
-                rel="noopener">
-                <svg class="icon" aria-hidden="true">
-                  <use href="#i-whatsapp" />
-                </svg>
-                Converse com a AG Solutions
-              </a>
-              <a class="btn btn--ghost-light btn--lg" href="#comparativo">
-                Veja a diferença
-                <svg class="icon" aria-hidden="true">
-                  <use href="#i-arrow" />
-                </svg>
-              </a>
-            </div>
-          </article>
-
-          <article class="hero__chapter" data-hero-chapter data-title="Conservação e equipe">
-            <p class="hero__eyebrow"><span class="hero__line" aria-hidden="true"></span>Etapa 03 · Conservação e equipe
-            </p>
-            <h2 class="hero__title" data-split>Conservação, limpeza e equipe terceirizada.</h2>
-            <p class="hero__lead">Profissionais e serviços dimensionados conforme as necessidades operacionais e as
-              características de cada condomínio.</p>
-            <div class="hero__actions">
-              <a class="btn btn--gold btn--lg" href="https://wa.me/5531991777275" data-wa="hero" target="_blank"
-                rel="noopener">
-                <svg class="icon" aria-hidden="true">
-                  <use href="#i-whatsapp" />
-                </svg>
-                Solicitar orçamento pelo WhatsApp
-              </a>
-              <a class="btn btn--ghost-light btn--lg" href="#servicos">
-                Conheça nossos serviços
-                <svg class="icon" aria-hidden="true">
-                  <use href="#i-arrow" />
-                </svg>
-              </a>
-            </div>
-          </article>
-        </div>
-
-        <nav class="hero__nav" aria-label="Etapas da apresentação">
-          <div class="hero__nav-text">
-            <span class="hero__nav-label" data-hero-label>Etapa 01</span>
-            <span class="hero__nav-title" data-hero-title>Gestão sob medida</span>
-            <div class="hero__dots" data-hero-dots></div>
+        <div class="container hero__content">
+          <img class="hero__logo" src="assets/img/logo-ag-solutions-white.png" alt="AG Solutions" width="373"
+            height="480" data-hero-logo>
+          <span class="hero__line" aria-hidden="true"></span>
+          <h1 class="hero__title" id="hero-title" data-split>Gestão condominial e terceirização sob medida para o seu
+            condomínio.</h1>
+          <p class="hero__lead">Serviços especializados com soluções personalizadas.</p>
+          <div class="hero__actions">
+            <a class="btn btn--gold btn--lg" href="https://wa.me/5531991777275" data-wa="hero" target="_blank"
+              rel="noopener">
+              <svg class="icon" aria-hidden="true">
+                <use href="#i-whatsapp" />
+              </svg>
+              Solicitar orçamento pelo WhatsApp
+            </a>
+            <a class="btn btn--ghost-light btn--lg" href="#servicos">
+              Conheça nossos serviços
+              <svg class="icon" aria-hidden="true">
+                <use href="#i-arrow" />
+              </svg>
+            </a>
           </div>
-          <button class="hero__ring" type="button" aria-label="Próxima etapa" data-hero-next>
-            <svg viewBox="0 0 48 48" aria-hidden="true">
-              <circle class="hero__ring-track" cx="24" cy="24" r="18" />
-              <circle class="hero__ring-bar" cx="24" cy="24" r="18" data-hero-ring />
-            </svg>
-            <svg class="hero__ring-icon" aria-hidden="true">
-              <use href="#i-arrow" />
-            </svg>
-          </button>
-        </nav>
+        </div>
       </div>
     </section>
 
@@ -336,14 +266,21 @@
           </li>
         </ol>
 
-        <div class="cta-strip reveal">
-          <p class="cta-strip__text">Seu condomínio precisa de uma solução personalizada?</p>
-          <a class="btn btn--navy" href="https://wa.me/5531991777275" data-wa="services" target="_blank" rel="noopener">
-            Converse com a AG Solutions
-            <svg class="icon" aria-hidden="true">
-              <use href="#i-arrow" />
-            </svg>
-          </a>
+        <div class="cta-banner reveal">
+          <img class="cta-banner__img" src="assets/img/cta-servicos-1920.jpg"
+            srcset="assets/img/cta-servicos-960.jpg 960w, assets/img/cta-servicos-1920.jpg 1920w"
+            sizes="(min-width: 1264px) 1200px, 100vw" alt="" loading="lazy" decoding="async">
+          <div class="cta-banner__content">
+            <span class="cta-banner__line" aria-hidden="true"></span>
+            <p class="cta-banner__text">Seu condomínio precisa de uma solução personalizada?</p>
+            <a class="btn btn--gold btn--lg" href="https://wa.me/5531991777275" data-wa="services" target="_blank"
+              rel="noopener">
+              <svg class="icon" aria-hidden="true">
+                <use href="#i-whatsapp" />
+              </svg>
+              Converse com a AG Solutions
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -408,14 +345,21 @@
           </div>
         </div>
 
-        <div class="cta-strip cta-strip--stack reveal">
-          <p class="cta-strip__text">Organize a gestão do seu condomínio com uma solução sob medida.</p>
-          <a class="btn btn--navy" href="https://wa.me/5531991777275" data-wa="compare" target="_blank" rel="noopener">
-            <svg class="icon" aria-hidden="true">
-              <use href="#i-whatsapp" />
-            </svg>
-            Solicitar uma avaliação pelo WhatsApp
-          </a>
+        <div class="cta-banner cta-banner--right reveal">
+          <img class="cta-banner__img" src="assets/img/cta-comparativo-1920.jpg?v=2"
+            srcset="assets/img/cta-comparativo-960.jpg?v=2 960w, assets/img/cta-comparativo-1920.jpg?v=2 1920w"
+            sizes="(min-width: 1264px) 1200px, 100vw" alt="" loading="lazy" decoding="async">
+          <div class="cta-banner__content">
+            <span class="cta-banner__line" aria-hidden="true"></span>
+            <p class="cta-banner__text">Organize a gestão do seu condomínio com uma solução sob medida.</p>
+            <a class="btn btn--gold btn--lg" href="https://wa.me/5531991777275" data-wa="compare" target="_blank"
+              rel="noopener">
+              <svg class="icon" aria-hidden="true">
+                <use href="#i-whatsapp" />
+              </svg>
+              <span>Solicitar <span class="hide-mobile">uma </span>avaliação<span class="hide-mobile"> pelo WhatsApp</span></span>
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -477,19 +421,28 @@
     <!-- ===================== 5. CTA FINAL E CONTATO ===================== -->
     <section class="final" id="contato" aria-labelledby="contato-title">
       <div class="container">
-        <div class="final__head reveal">
-          <span class="final__mark" aria-hidden="true"></span>
-          <h2 class="final__title" id="contato-title">Cada condomínio tem suas necessidades. A solução deve acompanhar
-            essa realidade.</h2>
-          <p class="final__lead">Conte à AG Solutions o que seu condomínio precisa. Nossa proposta é desenvolvida de
-            forma personalizada, considerando os serviços necessários e as características de cada contrato.</p>
-          <a class="btn btn--gold btn--lg" href="https://wa.me/5531991777275" data-wa="final" target="_blank"
-            rel="noopener">
-            <svg class="icon" aria-hidden="true">
-              <use href="#i-whatsapp" />
-            </svg>
-            Solicitar orçamento pelo WhatsApp
-          </a>
+        <div class="final__grid">
+          <div class="final__head reveal">
+            <p class="eyebrow eyebrow--light">Contato</p>
+            <h2 class="final__title" id="contato-title">Cada condomínio tem suas necessidades. A solução deve acompanhar
+              essa realidade.</h2>
+            <p class="final__lead">Conte à AG Solutions o que seu condomínio precisa. Nossa proposta é desenvolvida de
+              forma personalizada, considerando os serviços necessários e as características de cada contrato.</p>
+            <a class="btn btn--gold btn--lg" href="https://wa.me/5531991777275" data-wa="final" target="_blank"
+              rel="noopener">
+              <svg class="icon" aria-hidden="true">
+                <use href="#i-whatsapp" />
+              </svg>
+              Solicitar orçamento pelo WhatsApp
+            </a>
+          </div>
+
+          <figure class="final__media reveal">
+            <img src="assets/img/QuemSomos-1600.jpg"
+              srcset="assets/img/QuemSomos-960.jpg 960w, assets/img/QuemSomos-1600.jpg 1600w"
+              sizes="(min-width: 960px) 45vw, 100vw" alt="Fachada de edifício residencial com varandas" loading="lazy"
+              decoding="async">
+          </figure>
         </div>
 
         <dl class="contact reveal">
@@ -519,7 +472,7 @@
   <footer class="footer">
     <div class="container footer__inner">
       <a class="brand footer__brand" href="#inicio" aria-label="AG Solutions — voltar ao início">
-        <img src="assets/img/logo-ag-solutions.png" alt="AG Solutions" width="400" height="431" loading="lazy">
+        <img src="assets/img/logo-ag-solutions-white.png" alt="AG Solutions" width="373" height="480" loading="lazy">
       </a>
       <ul class="footer__info">
         <li><a href="tel:+5531991777275">(31) 99177-7275</a></li>
@@ -538,7 +491,7 @@
     </svg>
   </a>
 
-  <script src="js/main.js?v=4" defer></script>
+  <script src="js/main.js?v=8" defer></script>
 </body>
 
 </html>

@@ -68,10 +68,29 @@
   function initHeaderState() {
     var header = $('[data-header]');
     if (!header) return;
+    var heroLogo = $('[data-hero-logo]');
     var ticking = false;
+    var atHero = null;
+    var switchTimer = null;
+
+    // Enquanto a logo do hero estiver visível abaixo do cabeçalho, a logo do
+    // cabeçalho fica oculta e o menu centralizado; ao rolar, volta ao normal.
+    function setAtHero(next) {
+      if (next === atHero) return;
+      var first = atHero === null;
+      atHero = next;
+      if (first) { header.classList.toggle('at-hero', next); return; }
+      window.clearTimeout(switchTimer);
+      header.classList.add('is-switching');
+      switchTimer = window.setTimeout(function () {
+        header.classList.toggle('at-hero', atHero);
+        header.classList.remove('is-switching');
+      }, 180);
+    }
 
     function update() {
       header.classList.toggle('is-scrolled', window.scrollY > 8);
+      if (heroLogo) setAtHero(heroLogo.getBoundingClientRect().bottom > header.offsetHeight);
       ticking = false;
     }
     window.addEventListener('scroll', function () {
@@ -155,239 +174,44 @@
   }
 
   /* ---------- WhatsApp flutuante ----------
-     Oculto durante o hero (CTAs e navegação de etapas já visíveis) e na seção
-     de contato (CTA principal já visível), para não encobrir conteúdo. */
+     Oculto enquanto o hero ocupa a maior parte da tela (os CTAs dele já
+     estão visíveis); a partir daí, permanece sempre visível. */
   function initFloatingButton() {
     var btn = $('[data-wa-float]');
     var hero = document.getElementById('inicio');
-    var contact = document.getElementById('contato');
-    if (!btn || !('IntersectionObserver' in window)) return;
+    if (!btn) return;
+    if (!hero) { btn.classList.remove('is-hidden'); return; }
 
-    var state = { hero: true, contact: false };
-    function render() { btn.classList.toggle('is-hidden', state.hero || state.contact); }
-
-    var observer = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.target === hero) state.hero = entry.isIntersecting;
-        if (entry.target === contact) state.contact = entry.isIntersecting;
-      });
-      render();
-    }, { threshold: 0 });
-
-    if (hero) observer.observe(hero);
-    if (contact) observer.observe(contact);
+    var ticking = false;
+    function render() {
+      // Aparece quando o fim do hero sobe acima da metade da tela
+      var inHero = hero.getBoundingClientRect().bottom > window.innerHeight * 0.5;
+      btn.classList.toggle('is-hidden', inHero);
+      ticking = false;
+    }
+    function onScroll() {
+      if (!ticking) { ticking = true; window.requestAnimationFrame(render); }
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
     render();
   }
 
   /* ---------- Hero ----------
-     Desktop: sequência por rolagem — a seção tem altura extra, o palco
-     fica fixo (sticky) e o progresso da rolagem define a etapa ativa.
-     Celular/tablet: carrossel automático de uma tela (com toque/deslize),
-     pois a rolagem por toque não combina com o palco fixo.
-     Em ambos, a troca de etapa faz crossfade + zoom na imagem de fundo. */
+     Quebra o título em palavras mascaradas e dispara a animação de entrada. */
   function initHero() {
     var hero = $('[data-hero]');
-    var stage = $('[data-hero-stage]');
-    if (!hero || !stage) return;
+    if (!hero) return;
 
-    var frames = $$('[data-hero-frame]', hero);
-    var chapters = $$('[data-hero-chapter]', hero);
-    var ring = $('[data-hero-ring]', hero);
-    var label = $('[data-hero-label]', hero);
-    var title = $('[data-hero-title]', hero);
-    var dotsWrap = $('[data-hero-dots]', hero);
-    var next = $('[data-hero-next]', hero);
-    var total = chapters.length;
-    var RING = 113.1;
-    var AUTOPLAY_MS = 6000;
-    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var carouselMQ = window.matchMedia('(max-width: 959px)');
-
-    var active = -1;
-    var isCarousel = carouselMQ.matches;
-
-    // Quebra os títulos em palavras mascaradas para a revelação escalonada
     $$('[data-split]', hero).forEach(function (el) {
-      var words = el.textContent.trim().split(/\s+/);
-      el.setAttribute('aria-label', el.textContent.trim());
-      el.innerHTML = words.map(function (w, i) {
+      var text = el.textContent.trim().replace(/\s+/g, ' ');
+      el.setAttribute('aria-label', text);
+      el.innerHTML = text.split(' ').map(function (w, i) {
         return '<span class="hero__word" aria-hidden="true"><span style="--i:' + i + '">' + w + '</span></span>';
       }).join(' ');
     });
 
-    // Indicadores de etapa (visíveis no carrossel)
-    var dots = chapters.map(function (c, i) {
-      var d = document.createElement('button');
-      d.type = 'button';
-      d.className = 'hero__dot';
-      d.setAttribute('aria-label', 'Etapa ' + (i + 1) + ': ' + c.getAttribute('data-title'));
-      d.addEventListener('click', function () { goTo(i); });
-      dotsWrap.appendChild(d);
-      return d;
-    });
-
-    function setRing(progress) {
-      ring.style.strokeDashoffset = String(RING * (1 - Math.min(Math.max(progress, 0), 1)));
-    }
-
-    function setActive(index) {
-      if (index === active) return;
-      active = index;
-
-      frames.forEach(function (f, i) { f.classList.toggle('is-active', i === index); });
-      chapters.forEach(function (c, i) {
-        var on = i === index;
-        c.classList.toggle('is-active', on);
-        c.toggleAttribute('inert', !on);
-        c.setAttribute('aria-hidden', String(!on));
-      });
-      dots.forEach(function (d, i) {
-        d.classList.toggle('is-active', i === index);
-        if (i === index) d.setAttribute('aria-current', 'step'); else d.removeAttribute('aria-current');
-      });
-
-      label.textContent = 'Etapa ' + String(index + 1).padStart(2, '0');
-      title.classList.add('is-swapping');
-      window.setTimeout(function () {
-        title.textContent = chapters[index].getAttribute('data-title');
-        title.classList.remove('is-swapping');
-      }, reduce ? 0 : 220);
-
-      next.setAttribute('aria-label', isCarousel || index < total - 1 ? 'Próxima etapa' : 'Ir para Serviços');
-    }
-
-    /* ===== Modo rolagem (desktop) ===== */
-    var target = 0, smooth = 0, ringRaf = null, ticking = false;
-
-    function metrics() {
-      var stickyTop = parseFloat(getComputedStyle(stage).top) || 0;
-      var heroTop = hero.getBoundingClientRect().top + window.scrollY;
-      var distance = Math.max(hero.offsetHeight - stage.offsetHeight, 1);
-      return { stickyTop: stickyTop, heroTop: heroTop, distance: distance };
-    }
-
-    // Suaviza o anel de progresso (equivalente a uma "spring")
-    function animateRing() {
-      if (isCarousel) { ringRaf = null; return; }
-      smooth += (target - smooth) * (reduce ? 1 : 0.12);
-      if (Math.abs(target - smooth) < 0.0005) smooth = target;
-      setRing(smooth);
-      ringRaf = smooth !== target ? window.requestAnimationFrame(animateRing) : null;
-    }
-
-    function updateScroll() {
-      if (isCarousel) return;
-      var m = metrics();
-      target = Math.min(Math.max((m.stickyTop - hero.getBoundingClientRect().top) / m.distance, 0), 1);
-      var index = Math.min(Math.floor(target * total), total - 1);
-      setActive(index);
-      // Progresso dentro da etapa atual (0 → 1), usado no zoom da imagem
-      stage.style.setProperty('--p', Math.min(target * total - index, 1).toFixed(4));
-      if (!ringRaf) ringRaf = window.requestAnimationFrame(animateRing);
-    }
-
-    function onScroll() {
-      if (ticking || isCarousel) return;
-      ticking = true;
-      window.requestAnimationFrame(function () { updateScroll(); ticking = false; });
-    }
-
-    /* ===== Modo carrossel (celular/tablet) ===== */
-    var slideStart = 0, elapsed = 0, playRaf = null;
-    var inView = true, pageVisible = !document.hidden;
-
-    function canPlay() { return isCarousel && !reduce && inView && pageVisible; }
-
-    // O anel e o zoom acompanham o tempo da etapa; ao completar, avança
-    function tick(now) {
-      var p = (elapsed + now - slideStart) / AUTOPLAY_MS;
-      setRing(p);
-      stage.style.setProperty('--p', Math.min(p, 1).toFixed(4));
-      if (p >= 1) { goTo((active + 1) % total); return; }
-      playRaf = window.requestAnimationFrame(tick);
-    }
-
-    function resume() {
-      if (playRaf || !canPlay()) return;
-      slideStart = performance.now();
-      playRaf = window.requestAnimationFrame(tick);
-    }
-    function pause() {
-      if (!playRaf) return;
-      window.cancelAnimationFrame(playRaf);
-      playRaf = null;
-      elapsed += performance.now() - slideStart;
-    }
-
-    function goTo(index) {
-      if (!isCarousel) return;
-      if (playRaf) window.cancelAnimationFrame(playRaf);
-      playRaf = null;
-      elapsed = 0;
-      setActive(index);
-      setRing(reduce ? (index + 1) / total : 0);
-      stage.style.setProperty('--p', '0');
-      resume();
-    }
-
-    // Deslizar para os lados troca a etapa (a rolagem vertical continua livre)
-    var touchX = 0, touchY = 0;
-    stage.addEventListener('touchstart', function (e) {
-      touchX = e.touches[0].clientX;
-      touchY = e.touches[0].clientY;
-    }, { passive: true });
-    stage.addEventListener('touchend', function (e) {
-      if (!isCarousel) return;
-      var dx = e.changedTouches[0].clientX - touchX;
-      var dy = e.changedTouches[0].clientY - touchY;
-      if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy) * 1.2) {
-        goTo((active + (dx < 0 ? 1 : total - 1)) % total);
-      }
-    }, { passive: true });
-
-    // Pausa quando o hero sai da tela ou a aba fica em segundo plano
-    if ('IntersectionObserver' in window) {
-      new IntersectionObserver(function (entries) {
-        inView = entries[0].isIntersecting;
-        if (inView) resume(); else pause();
-      }, { threshold: 0.25 }).observe(stage);
-    }
-    document.addEventListener('visibilitychange', function () {
-      pageVisible = !document.hidden;
-      if (pageVisible) resume(); else pause();
-    });
-
-    /* ===== Botão do anel ===== */
-    next.addEventListener('click', function () {
-      if (isCarousel) { goTo((active + 1) % total); return; }
-      if (active >= total - 1) {
-        document.getElementById('servicos').scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' });
-        return;
-      }
-      var m = metrics();
-      window.scrollTo({
-        top: m.heroTop - m.stickyTop + ((active + 1) / total) * m.distance + 2,
-        behavior: reduce ? 'auto' : 'smooth'
-      });
-    });
-
-    /* ===== Alternância entre modos (ex.: girar o tablet) ===== */
-    function applyMode() {
-      isCarousel = carouselMQ.matches;
-      hero.classList.toggle('hero--carousel', isCarousel);
-      if (isCarousel) {
-        goTo(active < 0 ? 0 : active);
-      } else {
-        pause();
-        elapsed = 0;
-        updateScroll();
-      }
-    }
-
-    window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', onScroll);
-    carouselMQ.addEventListener('change', applyMode);
-    applyMode();
+    window.setTimeout(function () { hero.classList.add('is-ready'); }, 60);
   }
 
   /* ---------- Ano no rodapé ---------- */
