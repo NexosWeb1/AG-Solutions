@@ -9,12 +9,12 @@
     whatsapp: '5531991777275',
     // Mensagens pré-preenchidas conforme a seção de origem do clique
     messages: {
-      header:   'Olá! Vim pelo site e gostaria de solicitar um orçamento para o meu condomínio.',
-      hero:     'Olá! Vim pelo site e gostaria de solicitar um orçamento personalizado para o meu condomínio.',
-      services: 'Olá! Gostaria de conversar sobre a contratação de serviços condominiais da AG Solutions.',
-      compare:  'Olá! Gostaria de solicitar uma avaliação da gestão do meu condomínio.',
-      final:    'Olá! Gostaria de conhecer as soluções da AG Solutions para o meu condomínio e solicitar um orçamento personalizado.',
-      float:    'Olá! Gostaria de falar com a AG Solutions sobre a gestão do meu condomínio.'
+      header: 'Olá! Vim pelo site e gostaria de solicitar um orçamento para a minha empresa ou condomínio.',
+      hero: 'Olá! Vim pelo site e gostaria de solicitar um orçamento personalizado para a minha empresa ou condomínio.',
+      services: 'Olá! Gostaria de conversar sobre a contratação de serviços da AG Solutions para a minha empresa ou condomínio.',
+      compare: 'Olá! Gostaria de solicitar uma avaliação da gestão da minha empresa ou condomínio.',
+      final: 'Olá! Gostaria de conhecer as soluções da AG Solutions para a minha empresa ou condomínio e solicitar um orçamento personalizado.',
+      float: 'Olá! Gostaria de falar com a AG Solutions sobre a gestão da minha empresa ou condomínio.'
     }
   };
 
