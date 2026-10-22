@@ -24,7 +24,7 @@
     href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Inter:wght@400;500;600&display=swap"
     rel="stylesheet">
 
-  <link rel="stylesheet" href="css/styles.css?v=29">
+  <link rel="stylesheet" href="css/styles.css?v=41">
   <script>document.documentElement.classList.add('js');</script>
 </head>
 
@@ -382,18 +382,22 @@
 
         <div class="team">
           <article class="member reveal">
-            <figure class="member__photo media" data-media>
-              <!-- Retrato profissional oficial: assets/img/ary.jpg (não usar foto genérica) -->
-              <img src="assets/img/ary.jpg" alt="Retrato de Ary, sócia-proprietária da AG Solutions" loading="lazy"
-                decoding="async">
-              <figcaption class="media__placeholder media__placeholder--light">
-                <svg class="icon" aria-hidden="true">
-                  <use href="#i-image" />
-                </svg>
-                <span>Retrato profissional — Ary (pendente)</span>
-                <small>→ inserção</small>
-              </figcaption>
-            </figure>
+            <div class="member__frame">
+              <figure class="member__photo media" data-media>
+                <img src="assets/img/socia-ariadne-1200.jpg"
+                  srcset="assets/img/socia-ariadne-640.jpg 640w, assets/img/socia-ariadne-1200.jpg 1200w"
+                  sizes="(min-width: 960px) 420px, (min-width: 640px) 45vw, 90vw"
+                  alt="Retrato de Ariadne Sturzeneker, sócia-proprietária da AG Solutions" width="1200" height="1500"
+                  loading="lazy" decoding="async">
+                <figcaption class="media__placeholder media__placeholder--light">
+                  <svg class="icon" aria-hidden="true">
+                    <use href="#i-image" />
+                  </svg>
+                  <span>Retrato profissional — Ariadne</span>
+                  <small>→ inserção</small>
+                </figcaption>
+              </figure>
+            </div>
             <h3 class="member__name">Ariadne Sturzeneker</h3>
             <p class="member__role">Sócia-proprietária</p>
             <p class="member__bio">Responsável pela gestão administrativa, burocrática e organizacional, trazendo 10
@@ -402,18 +406,22 @@
           </article>
 
           <article class="member reveal">
-            <figure class="member__photo media" data-media>
-              <!-- Retrato profissional oficial: assets/img/gleiton.jpg (não usar foto genérica) -->
-              <img src="assets/img/gleiton.jpg" alt="Retrato de Gleiton, sócio-proprietário da AG Solutions"
-                loading="lazy" decoding="async">
-              <figcaption class="media__placeholder media__placeholder--light">
-                <svg class="icon" aria-hidden="true">
-                  <use href="#i-image" />
-                </svg>
-                <span>Retrato profissional — Gleiton (pendente)</span>
-                <small>→ inserção</small>
-              </figcaption>
-            </figure>
+            <div class="member__frame">
+              <figure class="member__photo media" data-media>
+                <img src="assets/img/socio-gleiton-1200.jpg"
+                  srcset="assets/img/socio-gleiton-640.jpg 640w, assets/img/socio-gleiton-1200.jpg 1200w"
+                  sizes="(min-width: 960px) 420px, (min-width: 640px) 45vw, 90vw"
+                  alt="Retrato de Gleiton Rodrigues, sócio-proprietário da AG Solutions" width="1200" height="1500"
+                  loading="lazy" decoding="async">
+                <figcaption class="media__placeholder media__placeholder--light">
+                  <svg class="icon" aria-hidden="true">
+                    <use href="#i-image" />
+                  </svg>
+                  <span>Retrato profissional — Gleiton</span>
+                  <small>→ inserção</small>
+                </figcaption>
+              </figure>
+            </div>
             <h3 class="member__name">Gleiton Rodrigues</h3>
             <p class="member__role">Sócio-proprietário</p>
             <p class="member__bio">Contribui com a gestão operacional e estratégica do negócio, atuando em conjunto para

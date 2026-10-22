@@ -808,12 +808,45 @@ html:not(.js) .nav-toggle { display: none; }
   grid-template-columns: 1fr;
   gap: 48px clamp(24px, 4vw, 48px);
 }
+/* Foto com moldura fina deslocada por trás (canto superior esquerdo) */
+.member__frame {
+  position: relative;
+  margin-bottom: 28px;
+  padding: 16px 0 0 16px;
+  isolation: isolate;
+}
+.member__frame::before {
+  content: "";
+  position: absolute;
+  inset: 0 16px 16px 0;
+  z-index: -1;
+  border: 1.5px solid rgba(176, 141, 71, .85);
+  border-radius: 12px;
+}
 .member__photo {
   aspect-ratio: 4 / 5;
-  margin-bottom: 24px;
-  background: var(--sand);
-  border-radius: var(--radius-sm);
-  border-bottom: 3px solid var(--navy-800);
+  background: var(--navy-800);
+  border-radius: 10px;
+  box-shadow: 0 24px 40px -24px rgba(15, 26, 51, .5);
+}
+.member__photo img { object-position: 50% 0; }
+/* A moldura de trás se "desenha" quando a seção aparece e depois "levita" sem parar */
+.member__frame::before {
+  clip-path: inset(0 0 0 0 round 12px);
+  animation: frame-float 3.5s ease-in-out 1.6s infinite alternate;
+}
+.js .member.reveal .member__frame::before {
+  clip-path: inset(0 100% 100% 0 round 12px);
+  transition: clip-path 1.2s cubic-bezier(.65, 0, .35, 1) .35s;
+}
+.js .member.reveal.is-visible .member__frame::before { clip-path: inset(0 0 0 0 round 12px); }
+@keyframes frame-float {
+  from { transform: translate(0, 4px); }
+  to   { transform: translate(-6px, -18px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .member__frame::before,
+  .js .member.reveal .member__frame::before { animation: none; transition: none; clip-path: none; }
 }
 .member__name {
   font-family: var(--font-head);
@@ -907,7 +940,7 @@ html:not(.js) .nav-toggle { display: none; }
   font-weight: 600;
   letter-spacing: .14em;
   text-transform: uppercase;
-  color: var(--gold-500);
+  color: var(--gold-600);
 }
 .contact dd {
   font-family: var(--font-head);
